@@ -9,7 +9,17 @@
 
 	
     <!-- Define your beans here -->
- 	<bean id="myCoach" class="com.springlearn.core.BaseballCoach"/>
+ 	<bean id="fortune" class="com.springlearn.core.fortune.HappyFortune"></bean>
+ 	
+ 	<!-- Constructor Injection -->
+ 	<bean id="myCoach" class="com.springlearn.core.coach.BaseballCoach">
+ 		<constructor-arg ref="fortune"></constructor-arg>
+ 	</bean>
+ 	<!-- Setter Injection & Literal Value Injection -->
+ 	<bean id="myCoach1" class="com.springlearn.core.coach.CricketCoach">
+ 		<property name="fortune" ref="fortune"/>
+ 		<property name="email" value="coach.cricket@coach.com"/>
+ 	</bean>
     
     <!-- define the dependency -->
     
